@@ -65,10 +65,10 @@ floorConnectionMap[None] = () #none is a valid key to a map?
 
 def roomToFloor(roomNum):
     room = roomNum[0:3].upper()
-    if (room in floorSet) and len(roomNum) == 5:
+    if (room in floorSet):
         return room
-    if (re.search("^B[123]\d", room)):
-        return room[0:2]                
+    elif (room[0:2] in floorSet):
+        return room[0:2]      
     else:
         print("Room codes are one or two letters followed by three numbers, like \"B131\" or \"SC507\"")
         print("It's also possible that the building/floor/room combination is not in the system.")
